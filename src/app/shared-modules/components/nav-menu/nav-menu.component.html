@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="flex-row--space-between">
+    <div class="flex-row--start">
+        <div class="display--none">
+            <button mat-icon-button (click)="onToggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div>
+            <a routerLink="/home">Angular Test</a>
+        </div>
+    </div>
+    <div class="display--flex">
+        <ul class="navigation-items flex-row--start">
+            <li class="mr-10 flex-row--start">
+                <mat-icon>linear_scale</mat-icon>
+                <a routerLink="/home">Wizard</a>
+            </li>
+            <li class="m-10 flex-row--start">
+                <mat-icon>timelapse</mat-icon>
+                <a routerLink="/home">Counter</a>
+            </li>
+            <li class="m-10 flex-row--start">
+                <mat-icon>today</mat-icon>
+                <a routerLink="/home">Calendar</a>
+            </li>
+        </ul>
+    </div>
+
+</mat-toolbar>

@@ -1,0 +1,183 @@
+@import "../library-scss/variables";
+
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.w-25 {
+  width: 25% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.w-auto {
+  width: auto !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.clear {
+  clear: both;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-fixed {
+  position: fixed !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+$d-list: -4, -5, -10, 0, 2, 3, 5, 6, 8, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80;
+@each $value in $d-list {
+  .p-#{$value} {
+    padding: #{$value}px !important;
+  }
+  .pl-#{$value} {
+    padding-left: #{$value}px !important;
+  }
+  .pr-#{$value} {
+    padding-right: #{$value}px !important;
+  }
+  .pt-#{$value} {
+    padding-top: #{$value}px !important;
+  }
+  .pb-#{$value} {
+    padding-bottom: #{$value}px !important;
+  }
+  .px-#{$value} {
+    padding: 0 #{$value}px !important;
+  }
+  .py-#{$value} {
+    padding: #{$value}px 0 !important;
+  }
+  .m-#{$value} {
+    margin: #{$value}px !important;
+  }
+  .ml-#{$value} {
+    margin-left: #{$value}px !important;
+  }
+  .mr-#{$value} {
+    margin-right: #{$value}px !important;
+  }
+  .mt-#{$value} {
+    margin-top: #{$value}px !important;
+  }
+  .mb-#{$value} {
+    margin-bottom: #{$value}px !important;
+  }
+  .mx-#{$value} {
+    margin: 0 #{$value}px !important;
+  }
+  .my-#{$value} {
+    margin: #{$value}px 0 !important;
+  }
+  .mcv{
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+  }
+  .top-#{$value} {
+    top: #{$value}px !important;
+  }
+
+}
+
+.c-black {
+  color: #000 !important;
+}
+
+.c-white {
+  color: white !important;
+}
+
+.c-orange {
+  color: $colorOrange !important;
+}
+
+.c-red {
+  color: $colorRed !important;
+}
+
+.c-blue {
+  color: $colorBlue !important;
+}
+
+.c-yellow {
+  color: $colorYellow !important;
+}
+
+.c-green {
+  color: $colorGreen !important;
+}
+
+.c-gray {
+  color: $colorGray !important;
+}
+
+.c-silver {
+  color: $colorSilver !important;
+}
+
+.c-purple {
+  color: $colorPurple !important;
+}
+
+.bg-silver {
+  background: $colorSilver;
+}
+
+.bg-light {
+  background: #fbfbfb;
+}
+
+
+$size-list: 8, 9, 10, 12, 15, 16, 20, 24, 28;
+@each $value in $size-list {
+  .size-#{$value} {
+    font-size: #{$value}px;
+  }
+}
+
+$line-height: 8, 9, 10, 12, 16, 20, 24, 28, 36;
+@each $value in $line-height {
+  .line-height-#{$value} {
+    line-height: #{$value}px !important;
+  }
+}
+
+@mixin create-md($size) {
+  font-size: $size !important;
+  line-height: $size !important;
+  width: $size !important;
+  height: $size !important;
+}
+
+$md-list: 8, 12, 14, 16, 18, 20, 22, 24, 28, 30, 36, 48, 60;
+@each $md in $md-list {
+  .md-#{$md} {
+    @include create-md(#{$md}px);
+  }
+}
+
+
+

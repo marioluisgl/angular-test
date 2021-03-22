@@ -6,24 +6,24 @@
             </button>
         </div>
         <div>
-            <a routerLink="/home">Angular Test</a>
+            <a routerLink="/home">{{'Titles.angularTest' | translate}}</a>
         </div>
     </div>
     <div class="display--flex">
         <ul class="navigation-items flex-row--start">
             <li class="mr-10 flex-row--start cursor-pointer">
                 <mat-icon>linear_scale</mat-icon>
-                <a (click)="openWizardModal()">Wizard</a>
+                <a (click)="openWizardModal()">{{'Menu.wizard' | translate}}</a>
             </li>
             <li class="m-10 flex-row--start cursor-pointer">
                 <mat-icon>timelapse</mat-icon>
-                <a routerLink="/home">Counter</a>
+                <a routerLink="/home">{{'Menu.counter' | translate}}</a>
             </li>
             <li class="m-10 flex-row--start cursor-pointer">
                 <mat-icon>today</mat-icon>
-                <a routerLink="/home">Calendar</a>
+                <a routerLink="/home">{{'Menu.calendar' | translate}}</a>
             </li>
         </ul>
     </div>
-
+    <app-lang-selector></app-lang-selector>
 </mat-toolbar>

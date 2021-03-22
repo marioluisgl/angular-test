@@ -1,0 +1,34 @@
+{
+    "LanguageNames": {
+      "en": "Ingles",
+      "es": "Español"
+    },
+
+    "Menu": {
+        "wizard": "Wizard",
+        "calendar": "Calendario",
+        "counter": "Contador"
+    },
+
+    "Titles": {
+        "angularTest": "Prueba de Angular",
+        "components": "Componentes",
+        "testRunning": "La prueba práctica de angular está corriendo"
+    },
+
+    "Buttons": {
+        "continue": "Continuar",
+        "previous": "Anterior",
+        "save": "Guardar"
+    },
+
+    "Labels": {
+        "seeCalendar": "Ver el componente del Calendario",
+        "seeCounter": "Ver el componente del Contador",
+        "seeWizard": "Ver el componente del Wizard"
+    },
+
+    "Descriptions": {
+        "components": "Selecciona cualquira de las opciones debajo para ver el componente"
+    }
+}

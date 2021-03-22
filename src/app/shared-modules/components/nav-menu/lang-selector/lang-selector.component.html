@@ -1,1 +1,12 @@
-<p>lang-selector works!</p>
+<div *ngIf="showLangMenu" class="language-select active cursor-pointer">
+    <div (click)="displayLanguages()">
+       <span class="text--uppercase">{{selected}}</span>
+    </div>
+    <ng-container *ngIf="toSelect">
+        <ul *ngFor="let option of languagesDynamic; let i=index" class="language-container-display">
+            <li (click)="selectLanguage(option)" [ngStyle]="getStyle(i)" class="flag">
+                <span class="text--uppercase">{{option}}</span>
+            </li>
+        </ul>
+    </ng-container>
+</div>

@@ -9,6 +9,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { RoutingModule } from './routing.module';
+import { ServiceModule } from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RoutingModule } from './routing.module';
       }
     }),
     CoreModule.forRoot(),
-    RoutingModule
+    RoutingModule,
+    ServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent],

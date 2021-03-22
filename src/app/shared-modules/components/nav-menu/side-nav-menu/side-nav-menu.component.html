@@ -1,11 +1,11 @@
 <mat-nav-list>
-    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
-        <mat-icon>linear_scale</mat-icon> <span class="nav-caption">Wizard</span>
+    <a mat-list-item (click)="onSidenavClose()">
+        <mat-icon>linear_scale</mat-icon> <span class="nav-caption">{{'Menu.wizard' | translate}}</span>
     </a>
-    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+    <a mat-list-item (click)="onSidenavClose()">
         <mat-icon>timelapse</mat-icon> <span class="nav-caption">Counter</span>   
     </a>
-    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+    <a mat-list-item (click)="onSidenavClose()">
         <mat-icon>today</mat-icon><span class="nav-caption">Calendar</span>
     </a>
 </mat-nav-list>

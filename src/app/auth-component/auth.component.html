@@ -11,7 +11,9 @@
       </g>
     </svg>
 
-    <span>{{ title }} app is running!</span>
+    <div class="text--align-center">
+      <span class="text--align-justify">{{'Titles.testRunning' | translate}}</span>
+    </div>
 
     <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
       <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
@@ -20,22 +22,23 @@
   </div>
 
   
-  <h2>Resources</h2>
-  <p>Here are some links to help you get started:</p>
-
-  <div class="card-container">
+  <h2>{{'Titles.components' | translate}}</h2>
+  <p class="text--align-center">{{'Descriptions.components' | translate}}</p>
+ 
+  <div class="card-container text--design">
     <a class="card" (click)="openWizardModal()">  
       <mat-icon class="md-16">visibility</mat-icon>  
-      <span>See Wizard Component</span>
+      <span class="p-5">{{'Labels.seeWizard' | translate}}</span>
     </a>
 
     <a class="card">
-      <span>CLI Documentation</span>
+      <mat-icon class="md-16">visibility</mat-icon>  
+      <span class="p-5">{{'Labels.seeCounter' | translate}}</span>
     </a>
 
     <a class="card">
-      <span>Angular Blog</span>
+      <mat-icon class="md-16">visibility</mat-icon>  
+      <span class="p-5">{{'Labels.seeCalendar' | translate}}</span>
     </a>
-
   </div>
 </div>

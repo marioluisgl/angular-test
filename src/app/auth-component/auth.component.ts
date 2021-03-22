@@ -12,15 +12,15 @@ import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
 })
 export class AuthComponent implements OnInit {
   public title = '';
-  constructor(private _matDialog: MatDialog,
-              private _cdr: ChangeDetectorRef) { }
+  constructor(private matDialog: MatDialog,
+              private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.title = 'client';
   }
 
-  public openWizardModal() {
-    const modal = this._matDialog.open(ModalUsageWizardComponent, {
+  public openWizardModal(): void {
+    const modal = this.matDialog.open(ModalUsageWizardComponent, {
       panelClass: 'modal-data',
       width: '65vW',
       disableClose: true,
@@ -30,7 +30,7 @@ export class AuthComponent implements OnInit {
     modal.afterClosed().pipe(untilDestroyed(this)).subscribe((response: any) => {
       console.log(response);
       if (response) {
-        this._cdr.detectChanges();
+        this.cdr.detectChanges();
       }
     });
   }

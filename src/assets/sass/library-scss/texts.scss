@@ -26,29 +26,6 @@
     text-transform: lowercase;
 }
   
-.text--truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    display: block;
-    text-overflow: ellipsis;
-}
-  
-.tag--title {
-  
-    &-orange {
-      background: $colorOrange;
-    }
-    &-blue {
-      background: $colorBlue;
-    }
-    &-gray {
-      background: $colorGray;
-    }
-    &-silver {
-      background: #ebeff2 !important;;
-    }
-}
-  
 .tag--error {
     width: 100%;
     padding: 10px;

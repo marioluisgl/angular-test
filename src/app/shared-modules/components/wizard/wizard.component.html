@@ -1,0 +1,44 @@
+<div #initialPosition class="wizard">
+
+    <ng-container *ngIf="wizardLoading">
+  
+      <div class="h-sticky">
+        <div class="w-header">
+  
+          <div class="w-indicator"></div>
+  
+          <div class="w-bar-group">
+            <div *ngFor="let step of bars; let i=index" class="w-bar-wrapper">
+              <div [ngClass]="{ 'w-bar--fill': currentStep >= i + 2 }" class="w-bar"></div>
+            </div>
+          </div>
+  
+          <div class="w-indicator-group">
+            <div *ngFor="let step of steps; let i=index"
+                 [ngClass]="{'w-indicator-fill': currentStep >= i + 1,'navigation': headerClickAvailable === true && !loading }"
+                 class="w-indicator">
+              <span>{{i + 1}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="w-steps">
+        <ng-content></ng-content>
+      </div>
+  
+      <div class="w-footer">
+        <button (click)="goPrevious()" mat-flat-button
+                [ngClass]="{'enable': (canGoPrevious() || steps[currentStep - 1]?.execPreviousIfInvalid)}"
+                class="w-previous disable animate">
+          {{ steps[currentStep - 1]?.previousText || ('Buttons.previous'| translate) }}
+        </button>
+        <button (click)="goNext()" mat-flat-button
+                [ngClass]="{'enable': (canGoNext() || steps[currentStep - 1]?.execNextIfInvalid), 'active': canGoNext()}"
+                class="btn--bg-grey m-5 w-next disable animate">
+          {{steps[currentStep - 1]?.nextText || ('Buttons.continue'| translate) }}
+        </button>
+      </div>
+    </ng-container>
+  </div>
+  

@@ -1,0 +1,126 @@
+<div class="modal">
+
+    <button class="btn--close" mat-icon-button [mat-dialog-close]="false">
+        <mat-icon class="md-14">close</mat-icon>
+    </button>
+
+    <mat-dialog-content>
+  
+      <app-wizard (Next)="onNext($event)" (Previous)="onPrevious($event)">
+  
+        <app-wizard-step (actionInPrevious)="onClose()"
+                         [execNextIfInvalid]="true"
+                         [nextIf]="true">
+  
+          <!-- <form name="reserveForm1" [formGroup]="form1" class="w-100" novalidate>
+  
+            <div class="fg">
+              <label class="title-fg fc--required position-relative" for="title">
+                {{"Titles.projectTitle" |translate}}
+              </label>
+              <input formControlName="title" id="projectTitle" required type="text">
+              <app-field-error [control]="form1.get('title')"></app-field-error>
+            </div>
+  
+            <div class="fg">
+              <span class="title-fg fc--required">
+                {{"Titles.problemCreateSubTitle" | translate}}
+              </span>
+              <div class="my-10">
+                <app-professions-selector [filterRequired]="true"
+                                          (professionSelect)="onProfessionSelect($event)">
+                </app-professions-selector>
+              </div>
+              <app-field-error [control]="form1.get('profession')"></app-field-error>
+            </div>
+          </form> -->
+        </app-wizard-step>
+  
+  
+        <!-- Problem (Description) -->
+        <app-wizard-step [execNextIfInvalid]="true"
+                         [nextIf]="true">
+<!--   
+          <form name="reserveForm2" [formGroup]="form2" class="w-100" novalidate>
+  
+          
+            <div class="fg my-10">
+              <label class="title-fg" for="birth_date">
+                {{"Labels.selectDateService" | translate}}
+              </label>
+              <div class="w-100 clear flex-row--start">
+                <div class="filter-calendar--v2">
+                  <button mat-raised-button (click)="dp3.open()" class="text--design">
+                    {{"Labels.selectDate" | translate}}
+                  </button>
+                  <mat-form-field>
+                    <div class="flex-row--center">
+                      <input matInput
+                            [matDatepicker]="dp3"
+                            (dateChange)="onSelectDate($event)"
+                            [formControl]="dateControl"
+                            disabled
+                            [min]="currentDate">
+                      <mat-icon *ngIf="dateControl?.value !== null" color="warn" (click)="removeDateValue()">clear</mat-icon>
+                    </div>
+                    <mat-datepicker color="primary" #dp3 disabled="false"></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+  
+            <div class="fg w-100">
+              <label class="title-fg fc--required" for="details">
+                {{"Labels.problemDescription" | translate}}
+              </label>
+              <textarea name="details"
+                        formControlName="details"
+                        type="text"
+                        id="details"
+                        style="min-height: 120px;"
+                        aria-invalid="false"
+                        required></textarea>
+              <app-field-error [control]="form2.get('details')"></app-field-error>
+            </div>
+  
+          </form> -->
+        </app-wizard-step>
+  
+
+        <app-wizard-step [execNextIfInvalid]="true"
+                         [nextIf]="true">
+  
+          <!-- <form name="reserveForm3" [formGroup]="form3" class="w-100" novalidate>
+  
+            <div class="clear my-10">
+              <div class="w-100">
+                <span class="title-fg">{{"Labels.problemImage" | translate}}</span>
+              </div>
+              <app-manager-images (imageCroppedFile)="addPhoto($event)"
+                                  [urlImages]="modelData.photo"></app-manager-images>
+              <app-field-error [control]="form3.get('photo')"></app-field-error>
+            </div>
+          </form> -->
+        </app-wizard-step>  
+
+        <app-wizard-step [execPreviousIfInvalid]="true"
+                         [execNextIfInvalid]="true"
+                         [nextText]="'Save'"
+                         (actionInNext)="createNewProblem()"
+                         [nextIf]="true">
+  
+          <!-- <form name="reserveForm5" [formGroup]="form5" class="w-100" novalidate>
+  
+            <app-filters-wizard [filters]="groupFilters"
+                                [allowRequired]="false"
+                                (change)="onChangeFiltersSelected($event)"></app-filters-wizard>
+  
+          </form> -->
+  
+  
+        </app-wizard-step>
+  
+      </app-wizard>
+  
+    </mat-dialog-content>
+</div>

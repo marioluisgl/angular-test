@@ -11,15 +11,15 @@
     </div>
     <div class="display--flex">
         <ul class="navigation-items flex-row--start">
-            <li class="mr-10 flex-row--start">
+            <li class="mr-10 flex-row--start cursor-pointer">
                 <mat-icon>linear_scale</mat-icon>
-                <a routerLink="/home">Wizard</a>
+                <a (click)="openWizardModal()">Wizard</a>
             </li>
-            <li class="m-10 flex-row--start">
+            <li class="m-10 flex-row--start cursor-pointer">
                 <mat-icon>timelapse</mat-icon>
                 <a routerLink="/home">Counter</a>
             </li>
-            <li class="m-10 flex-row--start">
+            <li class="m-10 flex-row--start cursor-pointer">
                 <mat-icon>today</mat-icon>
                 <a routerLink="/home">Calendar</a>
             </li>

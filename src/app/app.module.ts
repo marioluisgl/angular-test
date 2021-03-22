@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {CoreModule} from './core/core.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import {AppRoutingModule} from './core/app-routing/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +20,8 @@ import { ServiceModule } from './services/services.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModules,
     TranslateModule.forRoot({
       loader: {

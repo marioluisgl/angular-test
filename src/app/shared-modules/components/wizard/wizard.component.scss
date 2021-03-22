@@ -16,14 +16,14 @@
   
         .w-indicator {
             position: absolute;
-            width: calc(100% - 40px);
+            width: 100%;
             height: 30px;
             background: #fff;
         }
   
         .w-bar-group {
             position: absolute;
-            width: calc(100% - 40px);
+            width: 100%;
             padding: 14.5px 0 14.5px 0;
             display: flex;
             flex-direction: row;
@@ -50,7 +50,7 @@
   
     .w-indicator-group {
         position: absolute;
-        width: calc(100% - 40px);
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -99,7 +99,7 @@
     .w-steps {
         position: relative;
         margin: 0 auto;
-        padding: 2vH 3vW 0 3vW;
+        padding: 2vH 3vW 0 1vW;
         float: none;
         clear: both;
         z-index: 1;

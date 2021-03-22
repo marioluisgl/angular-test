@@ -1,0 +1,71 @@
+@import "../library-scss/variables";
+
+$inputHeight: 20px;
+app-wizard-step {
+  .autocomplete .mat-form-field-flex {
+    max-width: 100%;
+  }
+}
+
+.fg {
+  position: relative;
+  height: auto;
+  margin: 0 auto;
+  clear: both;
+
+  textarea {
+    width: 100%;
+    border: 0;
+    float: left;
+    max-width: 100%;
+    min-width: 100%;
+    background: #ebeef1;
+    border-radius: 3px;
+    min-height: 10vH;
+    padding: 12px;
+  }
+
+  & > input, & > div > input {
+    border: 0;
+    border-radius: 3px;
+    padding: 12px;
+    width: 100%;
+    height: $inputHeight;
+    background: #EBEEF1;
+  }
+
+  & > input[type="checkbox"] ~ label, & > div > input[type="checkbox"] ~ label {
+    clear: none;
+    margin: 0 0 0 5px;
+    position: relative;
+  }
+
+  & > input[type="checkbox"], & > div > input[type="checkbox"] {
+    clear: both;
+    float: left;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin: 10px 0;
+  }
+
+  & > input[type=file], & > div > input[type=file] {
+    background: white;
+    padding: 0;
+    margin-top: 0;
+    height: 20px;
+  }
+
+  label {
+    clear: both;
+    padding: 4px 0;
+    float: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .mCSB_container .wizard .wizard-steps {
+    padding: 40px 25px;
+  }
+}

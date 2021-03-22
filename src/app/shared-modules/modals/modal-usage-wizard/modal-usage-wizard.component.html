@@ -5,121 +5,94 @@
     </button>
 
     <mat-dialog-content>
-  
+
+      <div class="text--align-center test221">
+        <h2 class="p-0">{{'Titles.savingInto' | translate}}</h2>
+      </div>
+
       <app-wizard (Next)="onNext($event)" (Previous)="onPrevious($event)">
   
         <app-wizard-step (actionInPrevious)="onClose()"
                          [execNextIfInvalid]="true"
-                         [nextIf]="true">
+                         [nextIf]="form1.valid">
   
-          <!-- <form name="reserveForm1" [formGroup]="form1" class="w-100" novalidate>
-  
-            <div class="fg">
-              <label class="title-fg fc--required position-relative" for="title">
-                {{"Titles.projectTitle" |translate}}
-              </label>
-              <input formControlName="title" id="projectTitle" required type="text">
-              <app-field-error [control]="form1.get('title')"></app-field-error>
-            </div>
-  
-            <div class="fg">
-              <span class="title-fg fc--required">
-                {{"Titles.problemCreateSubTitle" | translate}}
-              </span>
-              <div class="my-10">
-                <app-professions-selector [filterRequired]="true"
-                                          (professionSelect)="onProfessionSelect($event)">
-                </app-professions-selector>
+          <form [formGroup]="form1" name="form1" novalidate>
+         
+              <div class="fg form-group">
+                <label class="title-fg fc--required" for="first_name">
+                  {{ "Labels.name" | translate }}
+                </label>
+                <input formControlName="name" id="name" required type="text">
               </div>
-              <app-field-error [control]="form1.get('profession')"></app-field-error>
-            </div>
-          </form> -->
+  
+              <div class="fg form-group">
+                <label class="title-fg fc--required" for="last_name">
+                  {{ "Labels.lastName" | translate }}
+                </label>
+                <input formControlName="last_name" id="last_name" required type="text">
+              </div>
+    
+          </form>
         </app-wizard-step>
   
-  
-        <!-- Problem (Description) -->
         <app-wizard-step [execNextIfInvalid]="true"
-                         [nextIf]="true">
-<!--   
-          <form name="reserveForm2" [formGroup]="form2" class="w-100" novalidate>
-  
-          
-            <div class="fg my-10">
-              <label class="title-fg" for="birth_date">
-                {{"Labels.selectDateService" | translate}}
-              </label>
-              <div class="w-100 clear flex-row--start">
-                <div class="filter-calendar--v2">
-                  <button mat-raised-button (click)="dp3.open()" class="text--design">
-                    {{"Labels.selectDate" | translate}}
-                  </button>
-                  <mat-form-field>
-                    <div class="flex-row--center">
-                      <input matInput
-                            [matDatepicker]="dp3"
-                            (dateChange)="onSelectDate($event)"
-                            [formControl]="dateControl"
-                            disabled
-                            [min]="currentDate">
-                      <mat-icon *ngIf="dateControl?.value !== null" color="warn" (click)="removeDateValue()">clear</mat-icon>
-                    </div>
-                    <mat-datepicker color="primary" #dp3 disabled="false"></mat-datepicker>
-                  </mat-form-field>
-                </div>
+                         [nextIf]="form2.valid">
+
+          <form  [formGroup]="form2" name="form2" class="w-100" novalidate>
+         
+              <div class="fg form-group">
+                <label class="title-fg fc--required" for="email">
+                  {{ "Labels.email" | translate }}
+                </label>
+                <input formControlName="email" id="email" required type="email">
               </div>
-            </div>
-  
-            <div class="fg w-100">
-              <label class="title-fg fc--required" for="details">
-                {{"Labels.problemDescription" | translate}}
-              </label>
-              <textarea name="details"
-                        formControlName="details"
-                        type="text"
-                        id="details"
-                        style="min-height: 120px;"
-                        aria-invalid="false"
-                        required></textarea>
-              <app-field-error [control]="form2.get('details')"></app-field-error>
-            </div>
-  
-          </form> -->
+      
+              <div class="fg form-group">
+                <label class="title-fg fc--required" for="password">
+                  {{ "Labels.password" | translate }}
+                </label>
+                <input type="password" formControlName="password" id="password" placeholder="○ ○ ○ ○ ○ ○ ○ ○ ○" required>
+              </div>  
+   
+          </form>
         </app-wizard-step>
   
 
         <app-wizard-step [execNextIfInvalid]="true"
-                         [nextIf]="true">
+                         [nextIf]="form3.valid">
   
-          <!-- <form name="reserveForm3" [formGroup]="form3" class="w-100" novalidate>
-  
-            <div class="clear my-10">
-              <div class="w-100">
-                <span class="title-fg">{{"Labels.problemImage" | translate}}</span>
-              </div>
-              <app-manager-images (imageCroppedFile)="addPhoto($event)"
-                                  [urlImages]="modelData.photo"></app-manager-images>
-              <app-field-error [control]="form3.get('photo')"></app-field-error>
-            </div>
-          </form> -->
+          <form [formGroup]="form3" name="birthDate"  class="w-100" novalidate>
+        
+              <label class="title-fg fc--required" for="birthDate">
+                {{ "Labels.birthDate" | translate }}
+              </label>
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>{{'Labels.birthDate' | translate}}</mat-label>
+                <input matInput formControlName="birth_date" [matDatepicker]="birth_date">
+                <mat-datepicker-toggle matSuffix [for]="birth_date"></mat-datepicker-toggle>
+                <mat-datepicker #birth_date></mat-datepicker>
+              </mat-form-field>
+     
+          </form>
         </app-wizard-step>  
-
+        
         <app-wizard-step [execPreviousIfInvalid]="true"
-                         [execNextIfInvalid]="true"
+                         [execNextIfInvalid]="false"
                          [nextText]="'Buttons.save' | translate"
-                         (actionInNext)="createNewProblem()"
-                         [nextIf]="true">
-  
-          <!-- <form name="reserveForm5" [formGroup]="form5" class="w-100" novalidate>
-  
-            <app-filters-wizard [filters]="groupFilters"
-                                [allowRequired]="false"
-                                (change)="onChangeFiltersSelected($event)"></app-filters-wizard>
-  
-          </form> -->
-  
-  
+                         (actionInNext)="saveData()"
+                         [nextIf]="check">
+
+          <form [formGroup]="form4" name="form4"  class="w-100" novalidate>
+
+            <div [innerHTML]="agreementText[langUse]" class="my-10"></div>
+           
+            <div class="text--design text--align-justify">
+              <mat-checkbox formControlName="agreement" (change)="onChange($event)"  class="my-10">
+                {{'Labels.acceptAgreement' | translate}}
+              </mat-checkbox>
+            </div>
+          </form>
         </app-wizard-step>
-  
       </app-wizard>
   
     </mat-dialog-content>

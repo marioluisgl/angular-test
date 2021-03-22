@@ -12,7 +12,10 @@
     </svg>
 
     <div class="text--align-center">
-      <span class="text--align-justify">{{'Titles.testRunning' | translate}}</span>
+      <span *ngIf="!userData?.user?.is_logged; else logged" class="text--align-justify">{{'Titles.helloTest' | translate}}</span>
+      <ng-template #logged>
+        <span class="text--align-justify">{{'Titles.testRunning' | translate:{user: userData?.user?.name} }}</span>
+      </ng-template>
     </div>
 
     <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
@@ -21,24 +24,30 @@
 
   </div>
 
+  <div *ngIf="userData?.user?.is_logged" class="my-10 flex-row--start">
+    <span class="text--design p-5">{{'Labels.logguedSince' | translate}}</span>
+    <app-timer
+      [timerType]="timerType.UP"
+      [showDays]="true"
+      [showText]="false"
+      [principalDate]="userData?.user?.created_at">
+    </app-timer>
+  </div>
+
+  <div *ngIf="userData?.user?.is_logged" class="w-100 text--align-center">
+    <button (click)="logout()" mat-flat-button color="accent">Salir</button>
+  </div>
+
+
+
   
   <h2>{{'Titles.components' | translate}}</h2>
   <p class="text--align-center">{{'Descriptions.components' | translate}}</p>
  
   <div class="card-container text--design">
     <a class="card" (click)="openWizardModal()">  
-      <mat-icon class="md-16">visibility</mat-icon>  
+      <mat-icon class="md-16">thumb_up</mat-icon>  
       <span class="p-5">{{'Labels.seeWizard' | translate}}</span>
-    </a>
-
-    <a class="card">
-      <mat-icon class="md-16">visibility</mat-icon>  
-      <span class="p-5">{{'Labels.seeCounter' | translate}}</span>
-    </a>
-
-    <a class="card">
-      <mat-icon class="md-16">visibility</mat-icon>  
-      <span class="p-5">{{'Labels.seeCalendar' | translate}}</span>
     </a>
   </div>
 </div>

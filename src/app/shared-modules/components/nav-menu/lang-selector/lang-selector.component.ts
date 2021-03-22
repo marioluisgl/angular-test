@@ -27,7 +27,6 @@ export class LangSelectorComponent implements OnInit, OnDestroy {
       const value = lang || this.translate.currentLang;
       this.toSelect = false;
       this.selected = value;
-      console.log(this.selected);
       this.translate.use(value);
       this.showLangMenu = true;
       this.languagesDynamic = [];

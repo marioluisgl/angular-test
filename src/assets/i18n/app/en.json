@@ -13,7 +13,9 @@
     "Titles": {
         "angularTest": "Angular Test",
         "components": "Components",
-        "testRunning": "The practical angular test is running"
+        "helloTest": "Hi, right now only the Wizard component is available. Please, watch it!!",
+        "savingInto": "Saving into local storage",
+        "testRunning": "{{user}}, the practical angular test is running now!!"
     },
 
     "Buttons": {
@@ -23,12 +25,20 @@
     },
 
     "Labels": {
+        "acceptAgreement": "I Accept",
+        "birthDate": "Birth Date",
+        "closed": "Closed",
+        "email": "Email",
+        "lastName": "Last name",
+        "logguedSince": "Loggued since",
+        "name": "Name",
+        "password": "Password",
         "seeCalendar": "See Calendar Component",
         "seeCounter": "See Counter Component",
-        "seeWizard": "See Wizard Component"
+        "seeWizard": "Test Wizard Component"
     },
 
     "Descriptions": {
-        "components": "Select any of the options below to see the component"
+        "components": "Haz click en probar compoenente para ver como funciona."
     }
 }

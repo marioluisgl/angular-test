@@ -120,19 +120,19 @@
             position: absolute;
     
             &.animate {
-            transition: all 0.4s;
+                transition: all 0.4s;
             }
   
             &.w-previous {
-            left: 0;
-            top: 0;
-            border-radius: 0px 100px 0px 100px;
-            box-shadow: 2px 0 3px #6c6363;
+                left: 0;
+                top: 0;
+                border-radius: 0px 100px 0px 100px;
+                box-shadow: 2px 0 3px #6c6363;
             }
   
             &.w-next {
                 right: 0px;
-                top: 0px;
+                top: -5px;
                 border-radius: 0px 100px 0 100px;
                 box-shadow: -2px 0px 3px #6c6363;
             }

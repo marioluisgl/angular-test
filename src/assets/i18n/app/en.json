@@ -15,6 +15,7 @@
         "components": "Components",
         "helloTest": "Hi, right now only the Wizard and Timer components are available. Please, watch it!!",
         "isRunning": "is running",
+        "listOfTimes": "List of times",
         "savingInto": "Saving into local storage",
         "testRunning": "{{user}}, the practical angular test is running now!!",
         "testTimer": "Timer Component"

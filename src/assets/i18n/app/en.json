@@ -6,16 +6,17 @@
 
     "Menu": {
         "calendar": "Calendar",
-        "counter": "Counter",
+        "timer": "Timer",
         "wizard": "Wizard"
     },
 
     "Titles": {
         "angularTest": "Angular Test",
         "components": "Components",
-        "helloTest": "Hi, right now only the Wizard component is available. Please, watch it!!",
+        "helloTest": "Hi, right now only the Wizard and Timer components are available. Please, watch it!!",
         "savingInto": "Saving into local storage",
-        "testRunning": "{{user}}, the practical angular test is running now!!"
+        "testRunning": "{{user}}, the practical angular test is running now!!",
+        "testTimer": "Timer Component"
     },
 
     "Buttons": {
@@ -34,7 +35,7 @@
         "name": "Name",
         "password": "Password",
         "seeCalendar": "See Calendar Component",
-        "seeCounter": "See Counter Component",
+        "seeTimer": "Probar Timer Component",
         "seeWizard": "Test Wizard Component"
     },
 

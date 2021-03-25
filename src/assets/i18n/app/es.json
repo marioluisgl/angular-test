@@ -7,15 +7,16 @@
     "Menu": {
         "wizard": "Wizard",
         "calendar": "Calendario",
-        "counter": "Contador"
+        "timer": "Temporizador"
     },
 
     "Titles": {
         "angularTest": "Prueba de Angular",
         "components": "Componentes",
-        "helloTest": "Hola ahora mismo solo está disponible el componete del Wizard. Por favor míralo!!",
+        "helloTest": "Hola ahora mismo solo está disponible el componete del Wizard y el temporizador. Por favor míralos!!",
         "savingInto": "Guardando en el local storage",
-        "testRunning": "{{user}}, la prueba práctica de angular está corriendo ahora!!"
+        "testRunning": "{{user}}, la prueba práctica de angular está corriendo ahora!!",
+        "testTimer": "Temporizador"
     },
 
     "Buttons": {
@@ -34,7 +35,7 @@
         "name": "Nombre",
         "password": "Contraseña",
         "seeCalendar": "Ver el componente del Calendario",
-        "seeCounter": "Ver el componente del Contador",
+        "seeTimer": "Probar el componente del Temporizador",
         "seeWizard": "Probar el componente del Wizard"
     },
 

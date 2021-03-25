@@ -14,6 +14,7 @@ import { ModalUsageCounterComponent } from '../modals/modal-usage-counter/modal-
 import { ModalUsageWizardComponent } from '../modals/modal-usage-wizard/modal-usage-wizard.component';
 import { TimerComponent } from './timer/timer.component';
 import { ClockTimerChronoComponent } from './clock-timer-chrono/clock-timer-chrono.component';
+import {PipesModule} from '../../shared-modules/pipes/pipes.module';
 
 @NgModule({
     imports: [
@@ -23,6 +24,7 @@ import { ClockTimerChronoComponent } from './clock-timer-chrono/clock-timer-chro
         ReactiveFormsModule,
         MaterialsModule,
         TranslateModule.forChild(),
+        PipesModule
     ],
     declarations: [
         NavMenuComponent,
@@ -34,7 +36,7 @@ import { ClockTimerChronoComponent } from './clock-timer-chrono/clock-timer-chro
         ModalUsageCounterComponent,
         ModalUsageWizardComponent,
         TimerComponent,
-        ClockTimerChronoComponent
+        ClockTimerChronoComponent,
     ],
     exports: [
         NavMenuComponent,
@@ -43,7 +45,7 @@ import { ClockTimerChronoComponent } from './clock-timer-chrono/clock-timer-chro
         WizardComponent,
         WizardStepComponent,
         TimerComponent,
-        ClockTimerChronoComponent
+        ClockTimerChronoComponent,
     ]
 })
 export class MainComponentsModule {

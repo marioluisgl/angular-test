@@ -1,1 +1,16 @@
-<p>modal-usage-counter works!</p>
+<div class="modal">
+
+    <button class="btn--close" mat-icon-button [mat-dialog-close]="false">
+        <mat-icon class="md-14">close</mat-icon>
+    </button>
+
+    <mat-dialog-content>
+
+      <div class="text--align-center test221">
+        <h2 class="p-0">{{'Titles.testTimer' | translate}}</h2>
+      </div>
+
+      <app-clock-timer-chrono [cronoData]="cronoData" [timerData]="timerData"></app-clock-timer-chrono>
+      
+    </mat-dialog-content>
+</div>

@@ -12,16 +12,35 @@ export enum EnumTimerMode {
 }
 
 export interface IClockData {
-    hour: number;
-    minutes: string;
-    secounds: string;
-    ampm: string;
+    time: ITime;
+    listOfTimes?: ITime[];
+}
+
+export class ClockData implements IClockData {
+    time: ITime;
+    listOfTimes?: ITime[];
+
+    constructor(options?: IClockData) {
+        merge(this, this._getDefaults(), options);
+    }
+
+    private _getDefaults(): IClockData {
+        return {
+            time: {
+                hour: 0,
+                minutes: 0,
+                secounds: 0
+            },
+            listOfTimes: [],
+        };
+    }
 }
 
 export interface ITime {
     hour: number;
-    minutes: number;
-    secounds: number;
+    minutes: number | any;
+    secounds: number | any;
+    ampm?: string;
 }
 
 export interface ICronoData {
@@ -48,6 +67,7 @@ export class CronoData implements ICronoData {
                 minutes: 0,
                 secounds: 0
             },
+            listOfTimes: [],
             interval: null,
             running: false
         };
@@ -78,6 +98,7 @@ export class TimerData implements ITimerData {
                 minutes: 59,
                 secounds: 59
             },
+            listOfTimes: [],
             interval: null,
             running: false
         };

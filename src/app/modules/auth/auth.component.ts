@@ -5,6 +5,7 @@ import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
 import { IUserModel } from '../../models/user.model';
 import { HandleAuthService } from '../../services/handle-services.service';
 import { EnumTimerType } from '../../models/utils.model';
+import { ModalUsageCounterComponent } from 'src/app/shared-modules/modals/modal-usage-counter/modal-usage-counter.component';
 
 @UntilDestroy()
 @Component({
@@ -30,6 +31,22 @@ export class AuthComponent implements OnInit {
     const modal = this.matDialog.open(ModalUsageWizardComponent, {
       panelClass: 'modal-data',
       width: '40vW',
+      disableClose: true,
+      hasBackdrop: false,
+      data: {}
+    });
+    modal.afterClosed().pipe(untilDestroyed(this)).subscribe((response: any) => {
+      if (response) {
+        this.userData = this.handleAuth.dataLogged;
+        this.cdr.detectChanges();
+      }
+    });
+  }
+
+  public openTimerModal(): void {
+    const modal = this.matDialog.open(ModalUsageCounterComponent, {
+      panelClass: 'modal-data',
+      width: '65vW',
       disableClose: true,
       hasBackdrop: false,
       data: {}

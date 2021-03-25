@@ -1,0 +1,33 @@
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(0 0 0 / 87%);
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .timer {
+    background: #b9b4b463;
+    width: 30%;
+    font-family: sans-serif;
+    padding: 10px 0;
+    height: 40px;
+}
+
+.container .separator, .container .timer{
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-size: sans-serif;
+}
+
+.container-list {
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(0 0 0 / 87%);
+    max-width: 700px;
+    justify-content: space-between;
+}

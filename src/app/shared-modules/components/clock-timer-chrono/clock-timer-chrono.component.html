@@ -1,1 +1,220 @@
-<p>clock-timer-chrono works!</p>
+
+<div class="w-100 clear flex-row--center">
+    <button (click)="setMode(EnumMode.CLOCK)" class="m-5 pull-left" mat-mini-fab color="primary">
+        <mat-icon>schedule</mat-icon>
+    </button>
+    <button (click)="setMode(EnumMode.CRONO)" class="m-5 pull-left" mat-mini-fab color="warn">
+        <mat-icon>timer</mat-icon>
+    </button>
+    <button (click)="setMode(EnumMode.TIMER)" class="m-5 pull-left" mat-mini-fab color="accent">
+        <mat-icon>timelapse</mat-icon>
+    </button>
+</div>
+
+<div class="w-100 clear flex-row--center my-10">
+    <span *ngIf="mode === EnumMode.CLOCK" class="text--design text--uppercase text--design-bold">
+        {{mode}} is running
+    </span>
+    <span *ngIf="mode === EnumMode.TIMER" class="text--design text--uppercase text--design-bold">
+        {{mode}} is running
+    </span>
+    <span *ngIf="mode === EnumMode.CRONO" class="text--design text--uppercase text--design-bold">
+        {{mode}} is running
+    </span>
+</div>
+
+<ng-container *ngIf="mode === EnumMode.CLOCK">
+    <div class="w-100 clear">
+        <p class="container mt-30">
+            <time class="timer">
+                {{ clockData?.time?.hour }}
+                <span class="subtitle--design position-relative b-10">hr</span>
+            </time>
+            <span class="p-10 separator">:</span>
+            <time class="timer">
+                {{ clockData?.time?.minutes}}
+                <span class="subtitle--design position-relative b-10">min</span>
+            </time>
+            <span class="p-10 separator">:</span>
+            <time class="timer">
+                {{ clockData?.time?.secounds}}
+                <span class="subtitle--design position-relative b-10">s</span>
+            </time>
+            <span class="p-10 separator">:</span>
+            <time class="timer">{{ clockData?.time?.ampm}}</time>
+        </p>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="mode === EnumMode.CRONO">
+    <div class="w-100 clear">
+        <p class="container mt-30">
+            <time class="timer">
+                {{ cronoData?.time?.hour}}
+                <span class="subtitle--design position-relative b-10">hr</span>
+            </time>
+            <span class="p-10 separator">:</span>
+            <time class="timer">
+                {{ cronoData?.time?.minutes | convertTime}}
+                <span class="subtitle--design position-relative b-10">min</span>
+            </time>
+            <span class="p-10 separator">:</span>
+            <time class="timer">
+                {{ cronoData?.time?.secounds | convertTime}}
+                <span class="subtitle--design position-relative b-10">s</span>
+            </time>
+        </p>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="mode === EnumMode.TIMER">
+    <div class="w-100 clear">
+        <p class="container mt-30">
+            <time class="timer">
+                {{ timerData?.time?.hour }}
+                <span class="subtitle--design position-relative b-10">hr</span>
+            </time>
+            <span class="p-10 separator">:</span>
+            <time class="timer">
+                {{ timerData?.time?.minutes | convertTime  }}
+                <span class="subtitle--design position-relative b-10">min</span>
+            </time>
+            <span class="p-10 separator">:</span>
+            <time class="timer">
+                {{ timerData?.time?.secounds | convertTime }}
+                <span class="subtitle--design position-relative b-10">s</span>
+            </time>
+        </p>
+    </div>
+</ng-container>
+
+<div class="w-100 clear flex-row--center">
+    <button *ngIf="mode !== EnumMode.CLOCK" (click)="reiniciar()" class="m-5 pull-left" 
+        mat-flat-button color="primary">
+        <mat-icon *ngIf="mode === EnumMode.TIMER">timelapse</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CRONO">timer</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CLOCK">schedule</mat-icon>
+        <span>Reiniciar</span>
+    </button>
+    <button *ngIf="mode === EnumMode.CRONO" (click)="initCrono()" class="m-5 pull-left" 
+        mat-flat-button color="warn">
+        <mat-icon *ngIf="mode === EnumMode.TIMER">timelapse</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CRONO">timer</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CLOCK">schedule</mat-icon>
+        <span>{{ cronoData.running ? 'Stop' : 'Init' }}</span>
+    </button>
+    <button *ngIf="mode === EnumMode.TIMER" (click)="initTimer()" class="m-5 pull-left" 
+        mat-flat-button color="warn">
+        <mat-icon *ngIf="mode === EnumMode.TIMER">timelapse</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CRONO">timer</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CLOCK">schedule</mat-icon>
+        <span>{{ timerData?.running ? 'Stop' : 'Init' }}</span>
+    </button>
+
+    <!-- get times -->
+    <button *ngIf="mode === EnumMode.CLOCK" (click)="getTime(clockData)" class="m-5 pull-left" 
+        mat-flat-button color="accent">
+        <mat-icon *ngIf="mode === EnumMode.TIMER">timelapse</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CRONO">timer</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CLOCK">schedule</mat-icon>
+        <span>Get Time</span>
+    </button>
+    <button *ngIf="mode === EnumMode.TIMER" (click)="getTime(timerData)" class="m-5 pull-left" 
+        mat-flat-button color="accent">
+        <mat-icon *ngIf="mode === EnumMode.TIMER">timelapse</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CRONO">timer</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CLOCK">schedule</mat-icon>
+        <span>Get Time</span>
+    </button>
+    <button *ngIf="mode === EnumMode.CRONO" (click)="getTime(cronoData)" class="m-5 pull-left" 
+        mat-flat-button color="accent">
+        <mat-icon *ngIf="mode === EnumMode.TIMER">timelapse</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CRONO">timer</mat-icon>
+        <mat-icon *ngIf="mode === EnumMode.CLOCK">schedule</mat-icon>
+        <span>Get Time</span>
+    </button>
+</div>
+
+<!-- List of times -->
+<div class="w-100 clear my-10">
+    <div class="container-list">
+       
+        <div class="w-100 clear my-10">
+            <span *ngIf="mode === EnumMode.CLOCK" class="text--design text--uppercase text--design-bold">
+                {{mode}} - list of times
+            </span>
+            <span *ngIf="mode === EnumMode.TIMER" class="text--design text--uppercase text--design-bold">
+                {{mode}} - list of times
+            </span>
+            <span *ngIf="mode === EnumMode.CRONO" class="text--design text--uppercase text--design-bold">
+                {{mode}} - list of times
+            </span>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <ng-container *ngIf="mode === EnumMode.CLOCK">
+            <div *ngFor="let time of clockData?.listOfTimes" 
+                class="flex-row--space-between w-100 clear bg-light my-10 py-10">
+                <div class="pl-5 text--design">
+                    <span class="text--design-bold pr-15">{{time.hour}}</span>
+                    <span class="text--design-bold pr-15">:</span>
+                    <span class="text--design-bold pr-15">{{time.minutes | convertTime }}</span>
+                    <span class="text--design-bold pr-15">:</span>
+                    <span class="text--design-bold pr-15">{{time.secounds | convertTime }}</span>
+                    <span class="text--design-bold pr-15">:</span>
+                    <span class="text--design-bold pr-15">{{time.ampm}}</span>
+                </div>
+                <div class="mr-10">
+                    <button (click)="deleteTime(time)" class="m-5 pull-left" mat-icon-fab color="warn">
+                        <mat-icon class="c-red">delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="mode === EnumMode.TIMER">
+            <div *ngFor="let time of timerData?.listOfTimes" 
+                class="flex-row--space-between w-100 clear bg-light my-10 py-10">
+                <div class="pl-5 text--design">
+                    <span class="text--design-bold pr-15">{{time.hour}} </span>
+                    <span class="text--design-bold pr-15">:</span>
+                    <span class="text--design-bold pr-15">{{time.minutes | convertTime }} </span>
+                    <span class="text--design-bold pr-15">:</span>
+                    <span class="text--design-bold pr-15">{{time.secounds | convertTime }} </span>
+                </div>
+                <div class="mr-10">
+                    <button (click)="deleteTime(time)" class="m-5 pull-left" mat-icon-fab color="warn">
+                        <mat-icon class="c-red">delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="mode === EnumMode.CRONO">
+            <div *ngFor="let time of cronoData?.listOfTimes" 
+                class="flex-row--space-between w-100 clear bg-light my-10 py-10">
+                <div class="pl-5 text--design">
+                    <span class="text--design-bold pr-15">{{time.hour}} </span>
+                    <span class="text--design-bold pr-15">:</span>
+                    <span class="text--design-bold pr-15">{{time.minutes | convertTime }}</span>
+                    <span class="text--design-bold pr-15">:</span>
+                    <span class="text--design-bold pr-15">{{time.secounds | convertTime }} </span>
+                </div>
+                <div class="mr-10">
+                    <button (click)="deleteTime(time)" class="m-5 pull-left" mat-icon-fab color="warn">
+                        <mat-icon class="c-red">delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+</div>
+
+
+
+
+  
+

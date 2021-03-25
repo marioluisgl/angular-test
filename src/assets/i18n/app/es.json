@@ -14,6 +14,7 @@
         "angularTest": "Prueba de Angular",
         "components": "Componentes",
         "helloTest": "Hola ahora mismo solo está disponible el componete del Wizard y el temporizador. Por favor míralos!!",
+        "isRunning": "está corriendo",
         "savingInto": "Guardando en el local storage",
         "testRunning": "{{user}}, la prueba práctica de angular está corriendo ahora!!",
         "testTimer": "Temporizador"

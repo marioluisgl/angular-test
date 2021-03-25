@@ -13,6 +13,7 @@ import { ModalUsageCalendarComponent } from '../modals/modal-usage-calendar/moda
 import { ModalUsageCounterComponent } from '../modals/modal-usage-counter/modal-usage-counter.component';
 import { ModalUsageWizardComponent } from '../modals/modal-usage-wizard/modal-usage-wizard.component';
 import { TimerComponent } from './timer/timer.component';
+import { ClockTimerChronoComponent } from './clock-timer-chrono/clock-timer-chrono.component';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { TimerComponent } from './timer/timer.component';
         ModalUsageCalendarComponent,
         ModalUsageCounterComponent,
         ModalUsageWizardComponent,
-        TimerComponent
+        TimerComponent,
+        ClockTimerChronoComponent
     ],
     exports: [
         NavMenuComponent,
@@ -40,7 +42,8 @@ import { TimerComponent } from './timer/timer.component';
         SideNavMenuComponent,
         WizardComponent,
         WizardStepComponent,
-        TimerComponent
+        TimerComponent,
+        ClockTimerChronoComponent
     ]
 })
 export class MainComponentsModule {

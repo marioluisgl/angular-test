@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalUsageWizardComponent } from '../shared-modules/modals/modal-usage-wizard/modal-usage-wizard.component';
+import { ModalUsageWizardComponent } from '../../shared-modules/modals/modal-usage-wizard/modal-usage-wizard.component';
 import {UntilDestroy, untilDestroyed} from '@ngneat/until-destroy';
-import { IUserModel } from '../models/user.model';
-import { HandleAuthService } from '../services/handle-services.service';
-import { EnumTimerType } from '../models/utils.model';
+import { IUserModel } from '../../models/user.model';
+import { HandleAuthService } from '../../services/handle-services.service';
+import { EnumTimerType } from '../../models/utils.model';
 
 @UntilDestroy()
 @Component({

@@ -9,7 +9,7 @@ import { SharedModules } from './shared-modules/shared-modules.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
-import { RoutingModule } from './routing.module';
+import { RoutingModule } from './modules/routing.module';
 import { ServiceModule } from './services/services.module';
 
 @NgModule({

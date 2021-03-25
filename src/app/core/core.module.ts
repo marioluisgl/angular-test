@@ -14,8 +14,8 @@ import {GlOBAL_CONFIG} from './configs/global.config';
   ]
 })
 export class CoreModule {
-  constructor(@Optional() @SkipSelf() parentModule: CoreModule, private _translate: TranslateService) {
-    this._translate.setDefaultLang(GlOBAL_CONFIG.LANGUAGES[1]);
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule, private translate: TranslateService) {
+    this.translate.setDefaultLang(GlOBAL_CONFIG.LANGUAGES[1]);
     if (parentModule) {
       throw new Error('CoreModule is already loaded. Import it in the AppModule only');
     }

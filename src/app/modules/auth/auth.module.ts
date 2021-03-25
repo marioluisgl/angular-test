@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
-import {  AuthComponent } from './auth.component';
-import {SharedModules} from '../shared-modules/shared-modules.module';
+import {AuthComponent} from './auth.component';
+import {SharedModules} from '../../shared-modules/shared-modules.module';
 import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
